@@ -14,13 +14,17 @@ import java.util.List;
 @Builder
 @Document(collection = "users")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
   private ObjectId id;
-    @Indexed(unique = true)
-    @NonNull
+  @Indexed(unique = true)
+  @NonNull
   private  String username;
-    @NonNull
+  private String email;
+  private boolean sentimentAnalysis;
+  @NonNull
   private String password;
 
     @DBRef

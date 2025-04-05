@@ -1,6 +1,7 @@
 package com.Astra.journalApp.entity;
 
 
+import com.Astra.journalApp.enums.Sentiment;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -21,6 +22,15 @@ public class JournalEntry {
     private String title;
     private String  content;
     private LocalDateTime date;
+    private Sentiment sentiment;
+
+    public Sentiment getSentiment() {
+        return sentiment;
+    }
+
+    public void setSentiment(Sentiment sentiment) {
+        this.sentiment = sentiment;
+    }
 
     public LocalDateTime getDate() {
         return date;

@@ -19,23 +19,23 @@ import static org.mockito.Mockito.*;
 
 public class UserDetailServiceImplTest {
 
-    @InjectMocks
-    private UserDetailServiceImpl userDetailService;
-
-   @Mock
-   private UserRepo userRepo;
-
-   @Disabled
-   @BeforeEach
-   void setUp(){
-       MockitoAnnotations.initMocks(this);
-    }
-
-    @Disabled
-    @Test
-    public void loadUserByUsernameTest(){
-    when(userRepo.findByUsername(ArgumentMatchers.anyString())).thenReturn(User.builder().username("ram").password("abc").roles(new ArrayList<>()).build());
-        UserDetails user = userDetailService.loadUserByUsername("ram");
-        Assertions.assertNotNull(user);
-    }
+//    @InjectMocks
+//    private UserDetailServiceImpl userDetailService;
+//
+//   @Mock
+//   private UserRepo userRepo;
+//
+//   @Disabled
+//   @BeforeEach
+//   void setUp(){
+//       MockitoAnnotations.initMocks(this);
+//    }
+//
+//    @Disabled
+//    @Test
+//    public void loadUserByUsernameTest(){
+//    when(userRepo.findByUsername(ArgumentMatchers.anyString())).thenReturn(User.builder().username("ram").password("abc").roles(new ArrayList<>()).build());
+//        UserDetails user = userDetailService.loadUserByUsername("ram");
+//        Assertions.assertNotNull(user);
+//    }
 }

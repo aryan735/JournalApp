@@ -1,8 +1,11 @@
 package com.Astra.journalApp.controller;
 
 import com.Astra.journalApp.Repository.UserRepo;
+
+import com.Astra.journalApp.api.response.WeatherResponse;
 import com.Astra.journalApp.entity.User;
 import com.Astra.journalApp.service.UserService;
+import com.Astra.journalApp.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +22,8 @@ public class UserController {
 
     @Autowired
     private UserRepo userRepo;
-
+    @Autowired
+    private WeatherService weatherService;
 
     @PutMapping
     public ResponseEntity<?> updateUser(@RequestBody User user){
@@ -40,5 +44,17 @@ public class UserController {
         userRepo.deleteByUsername(authentication.getName());
         return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping
+    public ResponseEntity<?> greeting(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        WeatherResponse weatherResponse = weatherService.getWhether("Bihar");
+        String greeting = "";
+        if (weatherResponse!=null){
+            greeting = ", Weather feels like "+weatherResponse.getCurrent().getFeelslike();
+        }
+        return new ResponseEntity<>("Hi "+authentication.getName()+greeting,HttpStatus.OK);
+    }
+
 
 }

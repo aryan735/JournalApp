@@ -19,28 +19,28 @@ public class UserServiceTests {
 @Autowired
 private UserRepo userRepo;
 
-    @Disabled
-    @ParameterizedTest
-    @ValueSource(strings = {
-            "Raj",
-            "Ram",
-            "Anu"
-    })
-    public void testFindByUsername(String name){
-
-     assertNotNull(userRepo.findByUsername(name),"Not found "+name);
-//        assertFalse(user.getJournalEntries().isEmpty());
-    }
-    @Disabled
-    @ParameterizedTest
-    @CsvSource({
-            "1,2,3",
-            "2,2,4",
-            "3,3,6"
-    })
-    public void test(int a, int b,int expected){
-        assertEquals(expected,a+b);
-    }
+//    @Disabled
+//    @ParameterizedTest
+//    @ValueSource(strings = {
+//            "Raj",
+//            "Ram",
+//            "Anu"
+//    })
+//    public void testFindByUsername(String name){
+//
+//     assertNotNull(userRepo.findByUsername(name),"Not found "+name);
+////        assertFalse(user.getJournalEntries().isEmpty());
+//    }
+//    @Disabled
+//    @ParameterizedTest
+//    @CsvSource({
+//            "1,2,3",
+//            "2,2,4",
+//            "3,3,6"
+//    })
+//    public void test(int a, int b,int expected){
+//        assertEquals(expected,a+b);
+//    }
 
 
 
